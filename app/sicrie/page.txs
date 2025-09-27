@@ -1,20 +1,29 @@
+export const metadata = {
+  title: "Sicrie și accesorii – galerie produse",
+  description:
+    "Sicrie din lemn masiv și economic, cruci, seturi textile, crucifix, mânere, capitonaj. Vizualizează modelele disponibile.",
+};
+
 export default function Sicrie() {
   return (
     <main style={{ padding: 20 }}>
-      <h1>Sicrie / Galerie</h1>
-      <p>Modele disponibile la comandă. Contact: +40 786 012 111</p>
+      <h1>Sicrie & accesorii</h1>
+      <p>Modele populare și opțiuni pe stoc:</p>
 
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
-        gap: 12,
-        marginTop: 16
-      }}>
-        {/* Schimbă src-urile când ai poze reale în /public */}
-        <img src="/c1.jpg" alt="Sicriu 1" style={{ width: "100%", borderRadius: 8 }} />
-        <img src="/c2.jpg" alt="Sicriu 2" style={{ width: "100%", borderRadius: 8 }} />
-        <img src="/c3.jpg" alt="Sicriu 3" style={{ width: "100%", borderRadius: 8 }} />
+      <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))" }}>
+        <figure>
+          <img src="/sicriu1.jpg" width={400} height={260} alt="Sicriu lemn masiv, finisaj nuc" />
+          <figcaption>Sicriu lemn masiv – finisaj nuc</figcaption>
+        </figure>
+        <figure>
+          <img src="/sicriu2.jpg" width={400} height={260} alt="Sicriu economic, capitonaj crem" />
+          <figcaption>Sicriu economic – capitonaj crem</figcaption>
+        </figure>
       </div>
+
+      <p style={{ marginTop: 16 }}>
+        * Pune imaginile în <code>/public/sicriu1.jpg</code> și <code>/public/sicriu2.jpg</code>.
+      </p>
     </main>
   );
 }
