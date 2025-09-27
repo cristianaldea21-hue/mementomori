@@ -1,0 +1,20 @@
+export default function Sicrie() {
+  return (
+    <main style={{ padding: 20 }}>
+      <h1>Sicrie / Galerie</h1>
+      <p>Modele disponibile la comandă. Contact: +40 786 012 111</p>
+
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+        gap: 12,
+        marginTop: 16
+      }}>
+        {/* Schimbă src-urile când ai poze reale în /public */}
+        <img src="/c1.jpg" alt="Sicriu 1" style={{ width: "100%", borderRadius: 8 }} />
+        <img src="/c2.jpg" alt="Sicriu 2" style={{ width: "100%", borderRadius: 8 }} />
+        <img src="/c3.jpg" alt="Sicriu 3" style={{ width: "100%", borderRadius: 8 }} />
+      </div>
+    </main>
+  );
+}
