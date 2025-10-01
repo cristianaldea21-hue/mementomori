@@ -1,13 +1,4 @@
-// app/robots.ts
-import type { MetadataRoute } from "next";
+User-agent: *
+Allow: /
 
-export default function robots(): MetadataRoute.Robots {
-  const base = "https://mementomori-psi.vercel.app"; // domeniul tău
-  return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
-    sitemap: `${base}/sitemap.xml`,
-  };
-}
+Sitemap: https://mementomori-psi.vercel.app/sitemap.xml
