@@ -41,3 +41,58 @@ export default function Servicii() {
     </div>
   );
 }
+// la începutul componentei:
+const SITE_URL = "https://mementomori-psi.vercel.app";
+const webPageServicii = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Servicii funerare complete – Memento Mori",
+  url: `${SITE_URL}/servicii`,
+  description:
+    "Servicii funerare în București & Ilfov: transport funerar, repatriere, îmbălsămare, sicrie, acte, organizare parastas. 24/7.",
+};
+
+const breadcrumbsServicii = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Acasă", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "Servicii", item: `${SITE_URL}/servicii` },
+  ],
+};
+
+const faqServicii = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Oferiți servicii funerare non-stop în București și Ilfov?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Da. Dispeceratul nostru funcționează 24/7, iar echipa intervine rapid în toate sectoarele din București și în județul Ilfov.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Realizați repatriere decedați din străinătate?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Da. Asigurăm repatriere internațională, inclusiv transport funerar și întocmirea tuturor documentelor legale.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Sunt incluse actele în pachetele funerare?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Da. Oferim consiliere și suport pentru certificat de deces, avize și autorizații, în toate pachetele noastre.",
+      },
+    },
+  ],
+};
+
+// în JSX, la final, chiar înainte de închiderea containerului:
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageServicii) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsServicii) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqServicii) }} />

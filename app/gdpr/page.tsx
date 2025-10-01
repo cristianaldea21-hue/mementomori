@@ -21,3 +21,26 @@ export default function GDPR() {
     </section>
   );
 }
+// sus:
+const SITE_URL = "https://mementomori-psi.vercel.app";
+const webPageGDPR = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Politica de confidențialitate (GDPR) – Memento Mori",
+  url: `${SITE_URL}/gdpr`,
+  description:
+    "Protecția datelor personale: temeiuri legale, scopuri, drepturile persoanelor vizate, date de contact.",
+};
+
+const breadcrumbsGDPR = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Acasă", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "GDPR", item: `${SITE_URL}/gdpr` },
+  ],
+};
+
+// la finalul JSX:
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageGDPR) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsGDPR) }} />

@@ -1,43 +1,92 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
 
+const SITE_URL = "https://mementomori-psi.vercel.app"; // schimbă dacă pui domeniu propriu
+const PHONE = "+40786012111";
+
 export const metadata: Metadata = {
-  title: "Memento Mori – Servicii funerare complete",
+  title: "Memento Mori – Servicii funerare complete București & Ilfov",
   description:
-    "Servicii funerare complete în București și Ilfov: preluare rapidă, pregătire decedat, sicrie, transport intern/internațional, obținere acte, organizare parastas. Dispecerat 24/7.",
-  metadataBase: new URL("https://mementomori-psi.vercel.app"),
+    "Servicii funerare non-stop în București și Ilfov: preluare decedat, transport funerar, repatriere, îmbălsămare, sicrie și accesorii, acte, organizare parastas. Dispecerat 24/7.",
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     title: "Memento Mori – Servicii funerare complete",
     description:
-      "Intervenim rapid non-stop în București și Ilfov. Contact: +40 786 012 111.",
-    url: "https://mementomori-psi.vercel.app",
+      "Respect pentru cei plecați, sprijin pentru cei rămași. Disponibilitate 24/7 în București & Ilfov.",
+    url: SITE_URL,
     siteName: "Memento Mori",
     type: "website",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Memento Mori" }],
   },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const org = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Memento Mori",
+    url: SITE_URL,
+    telephone: PHONE,
+    slogan: "Respect pentru cei plecați, sprijin pentru cei rămași",
+    logo: `${SITE_URL}/logo.svg`,
+  };
+
+  const website = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Memento Mori",
+    url: SITE_URL,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${SITE_URL}/search?q={query}`,
+      "query-input": "required name=query",
+    },
+  };
+
+  const funeralHome = {
+    "@context": "https://schema.org",
+    "@type": "FuneralHome",
+    name: "Memento Mori",
+    url: SITE_URL,
+    telephone: PHONE,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "București",
+      addressRegion: "Ilfov",
+      addressCountry: "RO",
+    },
+    areaServed: ["București", "Ilfov"],
+    openingHours: "Mo-Su 00:00-24:00",
+    image: `${SITE_URL}/og.jpg`,
+  };
+
+  const logo = {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    contentUrl: `${SITE_URL}/logo.svg`,
+    name: "Memento Mori Logo",
+  };
+
   return (
     <html lang="ro">
       <body>
+        {/* HEADER minimalist */}
         <header className="header">
           <div className="container" style={{display:'flex',alignItems:'center',gap:16}}>
             <a href="/" className="brand">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M12 3l8 6v12H4V9l8-6Z" stroke="#d4af37" strokeWidth="1.5"/>
-              </svg>
+              <img src="/logo.svg" alt="Memento Mori" width={22} height={22} />
               <span>Memento Mori</span>
             </a>
-
             <nav className="menu">
               <a href="/servicii">Servicii</a>
-              <a href="/sicrie">Sicrie / galerie</a>
+              <a href="/sicrie">Sicrie</a>
               <a href="/recomandari">Recomandări</a>
               <a href="/gdpr">GDPR</a>
             </nav>
-
             <div className="spacer" />
-            <a className="btn" href="tel:+40786012111">+40 786 012 111</a>
+            <a className="btn" href={`tel:${PHONE}`}>{PHONE.replace("+40"," +40 ")}</a>
           </div>
         </header>
 
@@ -45,16 +94,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <footer className="footer">
           <div className="container">
-            <div style={{marginBottom:8}}>
-              Respect pentru cei plecați, sprijin pentru cei rămași.
-            </div>
-            <div>
-              <a href="tel:+40786012111">Apel rapid</a> •{" "}
-              <a href="https://wa.me/40786012111" target="_blank">WhatsApp</a>
-            </div>
-            <div style={{marginTop:8}}>© {new Date().getFullYear()} Memento Mori. Toate drepturile rezervate.</div>
+            Respect pentru cei plecați, sprijin pentru cei rămași • © {new Date().getFullYear()} Memento Mori
           </div>
         </footer>
+
+        {/* JSON-LD globale */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(funeralHome) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(logo) }} />
       </body>
     </html>
   );
