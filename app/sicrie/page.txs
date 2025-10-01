@@ -1,90 +1,55 @@
+// app/sicrie/page.tsx
 export const metadata = {
-  title: "Sicrie și accesorii funerare – modele standard & premium | București Ilfov",
+  title: "Sicrie și galerie | Memento Mori",
   description:
-    "Sicrie funerare, urne, cruci, lenjerii, coroane și aranjamente florale. Modele standard și premium, livrare rapidă în București & Ilfov.",
+    "Galerie cu modele de sicrie și accesorii funerare disponibile în București și Ilfov.",
+  alternates: { canonical: "https://mementomori-psi.vercel.app/sicrie" },
 };
 
 export default function Sicrie() {
   return (
-    <section className="panel">
-      <h1>Sicrie și accesorii funerare</h1>
-      <h2>Respect pentru cei plecați, sprijin pentru cei rămași</h2>
-      <p>
-        Oferim o gamă diversificată de <strong>sicrie funerare</strong> adaptate tuturor cerințelor:
-        modele standard și premium, realizate din lemn masiv (stejar, nuc) sau furniruit, cu finisaje elegante.
-        Produsele sunt disponibile rapid, împreună cu accesoriile necesare pentru ceremonie.
-      </p>
-      <ul>
-        <li><strong>Urne funerare</strong> pentru incinerare</li>
-        <li><strong>Cruci funerare</strong> din lemn sau marmură</li>
-        <li><strong>Accesorii</strong>: lenjerii, seturi de lumânări, capitonaje</li>
-        <li><strong>Aranjamente florale</strong>: coroane, jerbe, buchete</li>
-      </ul>
-      <p style={{ marginTop: 16 }}>
-        Pentru consultanță și disponibilitate: <a href="tel:+40786012111">+40 786 012 111</a>.
-      </p>
-    </section>
+    <main style={{ padding: 20 }}>
+      <h1>Sicrie / galerie</h1>
+      <p>Modele disponibile, la cerere trimitem oferta completă.</p>
+
+      {/* JSON-LD – WebPage + Breadcrumbs */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Sicrie și galerie | Memento Mori",
+            url: "https://mementomori-psi.vercel.app/sicrie",
+            description:
+              "Galerie cu modele de sicrie și accesorii funerare disponibile în București și Ilfov.",
+            inLanguage: "ro-RO",
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Memento Mori",
+                item: "https://mementomori-psi.vercel.app",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Sicrie / galerie",
+                item: "https://mementomori-psi.vercel.app/sicrie",
+              },
+            ],
+          }),
+        }}
+      />
+    </main>
   );
 }
-// sus în fișier:
-const SITE_URL = "https://mementomori-psi.vercel.app";
-const webPageSicrie = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: "Sicrie și accesorii funerare – Memento Mori",
-  url: `${SITE_URL}/sicrie`,
-  description:
-    "Sicrie din lemn (standard & premium), urne, cruci, lenjerii, coroane și aranjamente florale. Livrare rapidă București & Ilfov.",
-};
-
-const breadcrumbsSicrie = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Acasă", item: SITE_URL },
-    { "@type": "ListItem", position: 2, name: "Sicrie", item: `${SITE_URL}/sicrie` },
-  ],
-};
-
-// dacă ai 3-5 modele reprezentative, listează-le aici
-const itemListSicrie = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      item: {
-        "@type": "Product",
-        name: "Sicriu lemn masiv – finisaj nuc",
-        url: `${SITE_URL}/sicrie`,
-        category: "Funeral Products",
-      },
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      item: {
-        "@type": "Product",
-        name: "Sicriu standard – lemn furniruit",
-        url: `${SITE_URL}/sicrie`,
-        category: "Funeral Products",
-      },
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      item: {
-        "@type": "Product",
-        name: "Urnă funerară – model clasic",
-        url: `${SITE_URL}/sicrie`,
-        category: "Funeral Products",
-      },
-    },
-  ],
-};
-
-// în JSX la final:
-<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSicrie) }} />
-<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsSicrie) }} />
-<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSicrie) }} />
