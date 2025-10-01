@@ -1,16 +1,27 @@
+export const metadata = {
+  title: "Sicrie și accesorii funerare – modele standard & premium | București Ilfov",
+  description:
+    "Sicrie funerare, urne, cruci, lenjerii, coroane și aranjamente florale. Modele standard și premium, livrare rapidă în București & Ilfov.",
+};
+
 export default function Sicrie() {
   return (
     <section className="panel">
-      <h1>Sicrie / galerie</h1>
-      <p>Modele clasice și premium, disponibile imediat. Accesorii: cruci, lenjerie, seturi de lumânări.</p>
+      <h1>Sicrie și accesorii funerare</h1>
+      <h2>Respect pentru cei plecați, sprijin pentru cei rămași</h2>
+      <p>
+        Oferim o gamă diversificată de <strong>sicrie funerare</strong> adaptate tuturor cerințelor:
+        modele standard și premium, realizate din lemn masiv (stejar, nuc) sau furniruit, cu finisaje elegante.
+        Produsele sunt disponibile rapid, împreună cu accesoriile necesare pentru ceremonie.
+      </p>
       <ul>
-        <li>Pachet Standard Domiciliu</li>
-        <li>Pachet Standard Spital</li>
-        <li>Pachet Social</li>
-        <li>Repatriere decedați</li>
+        <li><strong>Urne funerare</strong> pentru incinerare</li>
+        <li><strong>Cruci funerare</strong> din lemn sau marmură</li>
+        <li><strong>Accesorii</strong>: lenjerii, seturi de lumânări, capitonaje</li>
+        <li><strong>Aranjamente florale</strong>: coroane, jerbe, buchete</li>
       </ul>
-      <p style={{marginTop:16}}>
-        Pentru consultanță și ofertă: <a href="tel:+40786012111">+40 786 012 111</a>.
+      <p style={{ marginTop: 16 }}>
+        Pentru consultanță și disponibilitate: <a href="tel:+40786012111">+40 786 012 111</a>.
       </p>
     </section>
   );
