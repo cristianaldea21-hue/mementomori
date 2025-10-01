@@ -1,29 +1,17 @@
-export const metadata = {
-  title: "Sicrie și accesorii – galerie produse",
-  description:
-    "Sicrie din lemn masiv și economic, cruci, seturi textile, crucifix, mânere, capitonaj. Vizualizează modelele disponibile.",
-};
-
 export default function Sicrie() {
   return (
-    <main style={{ padding: 20 }}>
-      <h1>Sicrie & accesorii</h1>
-      <p>Modele populare și opțiuni pe stoc:</p>
-
-      <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))" }}>
-        <figure>
-          <img src="/sicriu1.jpg" width={400} height={260} alt="Sicriu lemn masiv, finisaj nuc" />
-          <figcaption>Sicriu lemn masiv – finisaj nuc</figcaption>
-        </figure>
-        <figure>
-          <img src="/sicriu2.jpg" width={400} height={260} alt="Sicriu economic, capitonaj crem" />
-          <figcaption>Sicriu economic – capitonaj crem</figcaption>
-        </figure>
-      </div>
-
-      <p style={{ marginTop: 16 }}>
-        * Pune imaginile în <code>/public/sicriu1.jpg</code> și <code>/public/sicriu2.jpg</code>.
+    <section className="panel">
+      <h1>Sicrie / galerie</h1>
+      <p>Modele clasice și premium, disponibile imediat. Accesorii: cruci, lenjerie, seturi de lumânări.</p>
+      <ul>
+        <li>Pachet Standard Domiciliu</li>
+        <li>Pachet Standard Spital</li>
+        <li>Pachet Social</li>
+        <li>Repatriere decedați</li>
+      </ul>
+      <p style={{marginTop:16}}>
+        Pentru consultanță și ofertă: <a href="tel:+40786012111">+40 786 012 111</a>.
       </p>
-    </main>
+    </section>
   );
 }

@@ -1,78 +1,61 @@
-// app/layout.tsx
-import "./globals.css";
 import type { Metadata } from "next";
-
-const siteName = "Memento Mori – Servicii funerare";
-const siteUrl = "https://mementomori-psi.vercel.app"; // pune domeniul tău Vercel
-const siteDesc =
-  "Servicii funerare complete în București și Ilfov: transport funerar, sicrie, îmbălsămare, acte, coroane. Dispecerat 24/7 la +40 786 012 111.";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: {
-    default: siteName,
-    template: "%s | Memento Mori",
-  },
-  description: siteDesc,
-  alternates: {
-    canonical: siteUrl,
-  },
+  title: "Memento Mori – Servicii funerare complete",
+  description:
+    "Servicii funerare complete în București și Ilfov: preluare rapidă, pregătire decedat, sicrie, transport intern/internațional, obținere acte, organizare parastas. Dispecerat 24/7.",
+  metadataBase: new URL("https://mementomori-psi.vercel.app"),
   openGraph: {
-    type: "website",
-    url: siteUrl,
-    title: siteName,
-    description: siteDesc,
+    title: "Memento Mori – Servicii funerare complete",
+    description:
+      "Intervenim rapid non-stop în București și Ilfov. Contact: +40 786 012 111.",
+    url: "https://mementomori-psi.vercel.app",
     siteName: "Memento Mori",
-    locale: "ro_RO",
-    images: [
-      {
-        url: "/og-cover.jpg", // opțional: pune o imagine 1200x630 în /public
-        width: 1200,
-        height: 630,
-        alt: "Memento Mori – Servicii funerare complete",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteName,
-    description: siteDesc,
-    images: ["/og-cover.jpg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  icons: {
-    icon: "/favicon.ico",
+    type: "website",
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ro">
-      <body>{children}</body>
-      {/* JSON-LD LocalBusiness */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FuneralHome",
-            name: "Memento Mori",
-            url: siteUrl,
-            telephone: "+40786012111",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "București",
-              addressCountry: "RO",
-            },
-            areaServed: ["București", "Ilfov"],
-            openingHours: "Mo-Su 00:00-24:00",
-            image: siteUrl + "/og-cover.jpg",
-          }),
-        }}
-      />
+      <body>
+        <header className="header">
+          <div className="container" style={{display:'flex',alignItems:'center',gap:16}}>
+            <a href="/" className="brand">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M12 3l8 6v12H4V9l8-6Z" stroke="#d4af37" strokeWidth="1.5"/>
+              </svg>
+              <span>Memento Mori</span>
+            </a>
+
+            <nav className="menu">
+              <a href="/servicii">Servicii</a>
+              <a href="/sicrie">Sicrie / galerie</a>
+              <a href="/recomandari">Recomandări</a>
+              <a href="/gdpr">GDPR</a>
+            </nav>
+
+            <div className="spacer" />
+            <a className="btn" href="tel:+40786012111">+40 786 012 111</a>
+          </div>
+        </header>
+
+        <main className="container" style={{paddingTop:24}}>{children}</main>
+
+        <footer className="footer">
+          <div className="container">
+            <div style={{marginBottom:8}}>
+              Respect pentru cei plecați, sprijin pentru cei rămași.
+            </div>
+            <div>
+              <a href="tel:+40786012111">Apel rapid</a> •{" "}
+              <a href="https://wa.me/40786012111" target="_blank">WhatsApp</a>
+            </div>
+            <div style={{marginTop:8}}>© {new Date().getFullYear()} Memento Mori. Toate drepturile rezervate.</div>
+          </div>
+        </footer>
+      </body>
     </html>
   );
 }
