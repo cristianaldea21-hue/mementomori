@@ -1,53 +1,46 @@
 // app/sicrie/page.tsx
-export const metadata = {
-  title: "Sicrie și galerie | Memento Mori",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sicrie & galerie – modele pentru toate bugetele | Memento Mori",
   description:
-    "Galerie cu modele de sicrie și accesorii funerare disponibile în București și Ilfov.",
-  alternates: { canonical: "https://mementomori-psi.vercel.app/sicrie" },
+    "Sicrie clasice și premium, accesorii funerare, cruci, urne. Consultanță pentru alegerea potrivită, disponibilitate 24/7.",
+  alternates: { canonical: "/sicrie" },
+  openGraph: {
+    title: "Sicrie & galerie",
+    description: "Gama variată de sicrie și accesorii funerare.",
+    url: "https://mementomori-psi.vercel.app/sicrie",
+    images: [{ url: "/logo.png" }],
+  },
 };
 
 export default function Sicrie() {
   return (
-    <main style={{ padding: 20 }}>
-      <h1>Sicrie / galerie</h1>
-      <p>Modele disponibile, la cerere trimitem oferta completă.</p>
+    <main>
+      <h1>Sicrie și accesorii funerare</h1>
+      <p>
+        Oferim modele variate (lemn masiv, furnir, clasice/premium), cu accesorii incluse: capitonaj,
+        mânere, cruci, seturi lumânări, urne. Te consiliem pentru alegerea potrivită familiei.
+      </p>
 
-      {/* JSON-LD – WebPage + Breadcrumbs */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            name: "Sicrie și galerie | Memento Mori",
-            url: "https://mementomori-psi.vercel.app/sicrie",
-            description:
-              "Galerie cu modele de sicrie și accesorii funerare disponibile în București și Ilfov.",
-            inLanguage: "ro-RO",
-          }),
-        }}
-      />
+      <ul>
+        <li>Modele accesibile și premium, pe stoc.</li>
+        <li>Personalizare inscripții și accesorii.</li>
+        <li>Livrare rapidă în București & Ilfov.</li>
+      </ul>
+
+      {/* Breadcrumbs JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                name: "Memento Mori",
-                item: "https://mementomori-psi.vercel.app",
-              },
-              {
-                "@type": "ListItem",
-                position: 2,
-                name: "Sicrie / galerie",
-                item: "https://mementomori-psi.vercel.app/sicrie",
-              },
-            ],
-          }),
+            "itemListElement": [
+              { "@type": "ListItem", position: 1, name: "Acasă", item: "https://mementomori-psi.vercel.app/" },
+              { "@type": "ListItem", position: 2, name: "Sicrie / galerie", item: "https://mementomori-psi.vercel.app/sicrie" }
+            ]
+          })
         }}
       />
     </main>
