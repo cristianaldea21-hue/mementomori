@@ -1,0 +1,44 @@
+<!-- public/img/logo-memento.svg -->
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFE58A"/>
+      <stop offset="1" stop-color="#C9A227"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="60%">
+      <stop offset="0" stop-color="#FFD351" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" fill="#000"/>
+  <circle cx="256" cy="256" r="190" fill="url(#glow)"/>
+  <!-- cunună lauri -->
+  <g stroke="url(#g)" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M120 330c-40-35-58-84-50-128 2-12 7-26 13-39"/>
+    <path d="M392 330c40-35 58-84 50-128-2-12-7-26-13-39"/>
+    <!-- frunze stânga -->
+    <path d="M104 278c-22-5-34-19-39-33 18-7 36-2 48 10"/>
+    <path d="M122 246c-24-8-33-26-34-40 18-2 34 7 44 21"/>
+    <path d="M135 215c-18-12-24-30-22-44 16 2 30 12 38 27"/>
+    <path d="M146 188c-13-17-14-34-9-47 15 5 26 18 31 33"/>
+    <!-- frunze dreapta -->
+    <path d="M408 278c22-5 34-19 39-33-18-7-36-2-48 10"/>
+    <path d="M390 246c24-8 33-26 34-40-18-2-34 7-44 21"/>
+    <path d="M377 215c18-12 24-30 22-44-16 2-30 12-38 27"/>
+    <path d="M366 188c13-17 14-34 9-47-15 5-26 18-31 33"/>
+  </g>
+  <!-- cerc medalion -->
+  <circle cx="256" cy="256" r="150" fill="#111" stroke="url(#g)" stroke-width="10"/>
+  <!-- mâini stilizate (sprijin) -->
+  <g fill="none" stroke="url(#g)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M227 304c10 9 22 12 36 12 30 0 54-24 54-54 0-12-4-23-10-32"/>
+    <path d="M208 197c-11 12-18 27-18 45 0 20 9 36 23 47"/>
+    <path d="M206 236c20-10 45-8 70 5"/>
+    <path d="M247 257c14 0 26 4 37 12"/>
+  </g>
+  <!-- laur bază -->
+  <g fill="url(#g)">
+    <ellipse cx="256" cy="345" rx="90" ry="22" fill="#000" opacity=".4"/>
+    <path d="M256 332c-58 0-84-18-96-44 20 6 43 10 96 10s76-4 96-10c-12 26-38 44-96 44z" fill="url(#g)"/>
+  </g>
+</svg>
