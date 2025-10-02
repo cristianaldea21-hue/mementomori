@@ -1,95 +1,144 @@
-:root{
-  --gold-1:#d4af37;
-  --gold-2:#b88a2b;
-  --text:#e9e2c4;
-  --muted:#cfc6a6;
+/* ===== Reset scurt & font implicit ===== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-serif, Georgia, 'Times New Roman', serif;
+  color: #f1e6c8;            /* auriu deschis pentru text */
+  background: #0b0b0b;       /* fallback */
 }
 
-*{ box-sizing:border-box }
-
-html,body{
-  height:100%;
-  margin:0;
-  color:var(--text);
-  background:#0d0d0d url("/img/fundal.png") center/cover fixed no-repeat;
-  font-family: ui-serif, "Times New Roman", Georgia, serif;
+/* ===== Fundal LUX pe TOT site-ul ===== */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(60% 40% at 50% 55%, rgba(166,118,40,.45), rgba(0,0,0,.0) 70%),
+    url("/img/fundal.png") center/cover no-repeat fixed,
+    radial-gradient(120% 80% at 50% -10%, #171717, #0b0b0b);
+  z-index: -2;
+  filter: saturate(1.05) contrast(1.05);
 }
 
-/* Fără fundal alb pe sub-pagini */
-main, section, .container, .page, .pageStyle{ background:transparent !important; }
+/* strat subtil de “vignetă” pentru profunzime */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(120% 90% at 50% 10%, rgba(0,0,0,0) 40%, rgba(0,0,0,.45) 100%);
+  z-index: -1;
+}
 
-a{ color:var(--gold-1); text-decoration:none }
-a:hover{ text-decoration:underline }
-h1,h2,h3{ color:var(--text); margin:0 0 .6rem 0 }
+/* ===== Container global ===== */
+.container{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
-/* HEADER */
+/* ===== Header / Navbar ===== */
 .header{
-  position:sticky; top:0; z-index:50;
-  background:linear-gradient(180deg, rgba(0,0,0,.85), rgba(0,0,0,.5));
-  border-bottom:1px solid rgba(212,175,55,.25);
-  backdrop-filter:saturate(140%) blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(6px);
+  background: linear-gradient(180deg, rgba(15,15,15,.85), rgba(15,15,15,.55));
+  border-bottom: 1px solid rgba(255, 208, 120, .18);
 }
+.header-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  height:72px;
+}
+.brand{
+  display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.5px;
+  color:#f7e8b9; text-decoration:none;
+}
+.brand img{ width:40px; height:40px; display:block; }
 .nav{
-  max-width:1100px; margin:0 auto; padding:12px 16px;
-  display:flex; align-items:center; gap:16px; justify-content:space-between;
+  display:flex; gap:20px; align-items:center;
 }
-.brand{ display:flex; align-items:center; gap:10px; font-size:22px; font-weight:700; letter-spacing:.5px }
-.brand img{ width:40px; height:40px; object-fit:contain }
-.brand b{ color:var(--text) }
-.navLinks{ display:flex; gap:18px; align-items:center }
-.navLinks a{ color:var(--text); opacity:.9; font-weight:600 }
-.navLinks a:hover{ color:var(--gold-1) }
-.actions{ display:flex; gap:8px; align-items:center }
-.actions .callBtn{
-  background:linear-gradient(180deg, var(--gold-1), var(--gold-2));
-  color:#1a1a1a; font-weight:800; padding:8px 14px; border-radius:10px;
-  border:1px solid rgba(255,215,128,.35);
+.nav a{
+  color:#eadfbf; text-decoration:none; font-weight:500; opacity:.95;
+}
+.nav a:hover{ color:#ffdf8f; }
+
+/* buton telefon din header */
+.call-pill{
+  background: linear-gradient(180deg, #f1be53, #d59a2a);
+  color:#2a1c00; padding:10px 14px; border-radius:12px; font-weight:700; text-decoration:none;
+  border:1px solid rgba(0,0,0,.25); box-shadow: 0 4px 12px rgba(0,0,0,.35), inset 0 1px rgba(255,255,255,.25);
 }
 
-/* CONȚINUT */
-.container{ max-width:1100px; margin:0 auto; padding:0 16px }
-.intro{ max-width:1100px; margin:28px auto; padding:16px; }
-.intro .card{
-  background: radial-gradient(1200px 600px at 50% 0%, rgba(212,175,55,.15), rgba(0,0,0,0));
-  border:1px solid rgba(212,175,55,.18); border-radius:14px; padding:34px 22px;
+/* ===== Hero ===== */
+.hero{
+  padding: 64px 0 24px;
+  text-align:center;
 }
-.hero{ text-align:center; padding:18px 10px 10px }
-.hero h1{ font-size:44px; line-height:1.16; font-weight:800; letter-spacing:.3px }
-.hero p{ color:var(--muted); margin-top:8px }
+.hero h1{
+  font-size: clamp(28px, 5.2vw, 56px);
+  line-height:1.1;
+  margin: 0 auto 14px;
+  max-width: 18ch;
+  color:#f5d98a;
+  text-shadow: 0 1px 0 rgba(0,0,0,.6);
+}
+.hero-sub{ color:#eadfbf; opacity:.9; margin-bottom:22px; }
 
-/* Butoane */
+/* CTA */
+.cta{
+  display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:22px;
+}
 .btn{
-  display:inline-flex; align-items:center; justify-content:center;
-  padding:12px 22px; border-radius:12px; font-weight:800; letter-spacing:.3px;
-  border:1px solid rgba(255,215,160,.25); margin-right:10px
+  padding: 12px 20px; border-radius:12px; border:1px solid rgba(0,0,0,.25);
+  text-decoration:none; font-weight:800; letter-spacing:.3px; display:inline-flex; align-items:center; gap:10px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.35), inset 0 1px rgba(255,255,255,.25);
 }
-.btn.call{ background:linear-gradient(180deg, var(--gold-1), var(--gold-2)); color:#111 }
-.btn.wa  { background:#1f2d20; color:#25D366; border-color:#2f854a }
+.btn-gold{ background: linear-gradient(180deg, #f1be53, #d59a2a); color:#2a1c00; }
+.btn-dark{ background: linear-gradient(180deg, #2b2b2b, #121212); color:#f0e7cd; border-color: rgba(255,255,255,.1); }
 
-/* Listă check */
-.check{ margin:20px auto 0; max-width:800px }
-.check li{ margin:10px 0; }
+/* listă beneficii */
+.bullets{ width:100%; display:flex; justify-content:center; }
+.bullets ul{
+  list-style:none; padding:0; margin:8px 0 0; width:min(680px, 100%); text-align:left;
+}
+.bullets li{
+  position:relative; padding-left:28px; margin:10px 0; color:#efe4c6;
+}
+.bullets li::before{
+  content:"✓"; position:absolute; left:0; top:0; color:#ffd26e; font-weight:900;
+}
 
-/* FAB */
-.fabWrap{ position:fixed; right:16px; bottom:16px; display:flex; flex-direction:column; gap:10px; z-index:60 }
-.fab{ width:52px; height:52px; display:grid; place-items:center; border-radius:50%;
-      border:1px solid rgba(255,215,160,.28); box-shadow:0 6px 18px rgba(0,0,0,.35) }
-.fab.whats{ background:#25D366; color:#02240f }
-.fab.call { background:linear-gradient(180deg, var(--gold-1), var(--gold-2)); color:#1a1a1a }
+/* link-uri interne sub hero */
+.linkgrid{
+  display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin: 24px 0 10px;
+}
+.linkgrid a{ color:#ffd26e; text-decoration:none; }
+.linkgrid a:hover{ text-decoration:underline; }
 
-/* FOOTER */
+/* ===== Footer ===== */
 .footer{
-  border-top:1px solid rgba(212,175,55,.2);
-  background:linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.5));
-  margin-top:24px;
+  margin-top: 28px;
+  border-top: 1px solid rgba(255, 208, 120, .18);
+  background: linear-gradient(180deg, rgba(15,15,15,.65), rgba(15,15,15,.85));
 }
-.footerInner{ max-width:1100px; margin:0 auto; padding:12px 16px; text-align:center }
-.footer .slogan{ color:var(--muted); font-weight:700 }
-.footer .mini{ color:var(--gold-2); font-size:13px }
+.footer-inner{
+  display:flex; align-items:center; justify-content:center;
+  height:60px; color:#e9ddb9; font-size:14px;
+}
 
-/* Responsive */
-@media (max-width:960px){
-  .navLinks{ display:none }
-  .brand img{ width:46px; height:46px }
-  .hero h1{ font-size:34px }
+/* ===== FAB: butoane plutitoare ===== */
+.fab-wrap{ position:fixed; right:18px; bottom:18px; display:flex; flex-direction:column; gap:12px; }
+.fab{
+  width:54px; height:54px; border-radius:50%;
+  display:grid; place-items:center; text-decoration:none; font-weight:900;
+  border:1px solid rgba(0,0,0,.25); box-shadow: 0 6px 14px rgba(0,0,0,.4), inset 0 1px rgba(255,255,255,.25);
+}
+.fab.wh{ background:#25D366; color:#0b1b0f; }
+.fab.call{ background: linear-gradient(180deg, #f1be53, #d59a2a); color:#2a1c00; }
+
+/* ===== Responsiv ===== */
+@media (max-width: 960px){
+  .header-inner{ height:64px; }
+  .nav{ display:none; } /* simplu – fără meniu mobil pentru moment */
 }
