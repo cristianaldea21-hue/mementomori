@@ -1,48 +1,29 @@
-// app/sicrie/page.tsx
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Sicrie & galerie – modele pentru toate bugetele | Memento Mori",
-  description:
-    "Sicrie clasice și premium, accesorii funerare, cruci, urne. Consultanță pentru alegerea potrivită, disponibilitate 24/7.",
-  alternates: { canonical: "/sicrie" },
-  openGraph: {
-    title: "Sicrie & galerie",
-    description: "Gama variată de sicrie și accesorii funerare.",
-    url: "https://mementomori-psi.vercel.app/sicrie",
-    images: [{ url: "/logo.png" }],
-  },
+export const metadata = {
+  title: 'Sicrie / galerie',
+  description: 'Sicrie și accesorii în stoc, de la standard la premium. Consultanță și livrare rapidă în București și Ilfov.'
 };
 
 export default function Sicrie() {
   return (
-    <main>
-      <h1>Sicrie și accesorii funerare</h1>
-      <p>
-        Oferim modele variate (lemn masiv, furnir, clasice/premium), cu accesorii incluse: capitonaj,
-        mânere, cruci, seturi lumânări, urne. Te consiliem pentru alegerea potrivită familiei.
-      </p>
+    <main className="intro container">
+      <section className="card">
+        <h1>Sicrie / galerie</h1>
+        <p>Modele variate, personalizare la cerere. Te ajutăm să alegi potrivit.</p>
+        <div style={{ marginTop: 16 }}>
+          <a className="btn call" href="tel:+40786012111">Apel rapid</a>
+          <a className="btn wa" href="https://wa.me/40786012111?text=Buna%20ziua%2C%20doresc%20detalii%20despre%20modelele%20de%20sicrie." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </div>
+      </section>
 
-      <ul>
-        <li>Modele accesibile și premium, pe stoc.</li>
-        <li>Personalizare inscripții și accesorii.</li>
-        <li>Livrare rapidă în București & Ilfov.</li>
-      </ul>
-
-      {/* Breadcrumbs JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", position: 1, name: "Acasă", item: "https://mementomori-psi.vercel.app/" },
-              { "@type": "ListItem", position: 2, name: "Sicrie / galerie", item: "https://mementomori-psi.vercel.app/sicrie" }
-            ]
-          })
-        }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          '@context':'https://schema.org','@type':'BreadcrumbList',
+          itemListElement:[
+            { '@type':'ListItem', position:1, name:'Acasă', item:'https://mementomori-psi.vercel.app' },
+            { '@type':'ListItem', position:2, name:'Sicrie', item:'https://mementomori-psi.vercel.app/sicrie' }
+          ]
+        })
+      }}/>
     </main>
   );
 }

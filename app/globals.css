@@ -1,105 +1,95 @@
-/* --- SITE HEADER --- */
-.site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background: #000;
-  border-bottom: 2px solid #d4af37;
-}
-.logo-wrap {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.logo {
-  width: 56px;
-  height: 56px;
-}
-.brand-title {
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: #d4af37;
-}
-.main-nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #fff;
-  font-weight: 500;
-}
-.btn-call-header {
-  background: #d4af37;
-  color: #000;
-  padding: 8px 14px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
+:root{
+  --gold-1:#d4af37;
+  --gold-2:#b88a2b;
+  --text:#e9e2c4;
+  --muted:#cfc6a6;
 }
 
-/* --- HERO --- */
-.hero {
-  background: url("/img/hero.jpg") center/cover no-repeat;
-  color: #fff;
-  text-align: center;
-  padding: 100px 20px;
-}
-.hero h2 {
-  font-size: 2.2rem;
-  margin-bottom: 15px;
-  color: #d4af37;
-}
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 25px;
-}
-.hero-buttons .btn-main {
-  display: inline-block;
-  margin: 0 10px;
-  padding: 12px 20px;
-  border-radius: 8px;
-  background: #d4af37;
-  color: #000;
-  text-decoration: none;
-  font-weight: bold;
-}
-.hero-buttons .btn-main.whatsapp {
-  background: #25d366;
-  color: #fff;
+*{ box-sizing:border-box }
+
+html,body{
+  height:100%;
+  margin:0;
+  color:var(--text);
+  background:#0d0d0d url("/img/fundal.png") center/cover fixed no-repeat;
+  font-family: ui-serif, "Times New Roman", Georgia, serif;
 }
 
-/* --- FOOTER --- */
-.footer {
-  background: #111;
-  padding: 20px;
-  text-align: center;
-  color: #ccc;
-  font-size: 0.9rem;
+/* Fără fundal alb pe sub-pagini */
+main, section, .container, .page, .pageStyle{ background:transparent !important; }
+
+a{ color:var(--gold-1); text-decoration:none }
+a:hover{ text-decoration:underline }
+h1,h2,h3{ color:var(--text); margin:0 0 .6rem 0 }
+
+/* HEADER */
+.header{
+  position:sticky; top:0; z-index:50;
+  background:linear-gradient(180deg, rgba(0,0,0,.85), rgba(0,0,0,.5));
+  border-bottom:1px solid rgba(212,175,55,.25);
+  backdrop-filter:saturate(140%) blur(6px);
 }
-.footer p {
-  margin: 0;
+.nav{
+  max-width:1100px; margin:0 auto; padding:12px 16px;
+  display:flex; align-items:center; gap:16px; justify-content:space-between;
+}
+.brand{ display:flex; align-items:center; gap:10px; font-size:22px; font-weight:700; letter-spacing:.5px }
+.brand img{ width:40px; height:40px; object-fit:contain }
+.brand b{ color:var(--text) }
+.navLinks{ display:flex; gap:18px; align-items:center }
+.navLinks a{ color:var(--text); opacity:.9; font-weight:600 }
+.navLinks a:hover{ color:var(--gold-1) }
+.actions{ display:flex; gap:8px; align-items:center }
+.actions .callBtn{
+  background:linear-gradient(180deg, var(--gold-1), var(--gold-2));
+  color:#1a1a1a; font-weight:800; padding:8px 14px; border-radius:10px;
+  border:1px solid rgba(255,215,128,.35);
 }
 
-/* --- BUTOANE PLUTITOARE --- */
-.fab-wrap {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+/* CONȚINUT */
+.container{ max-width:1100px; margin:0 auto; padding:0 16px }
+.intro{ max-width:1100px; margin:28px auto; padding:16px; }
+.intro .card{
+  background: radial-gradient(1200px 600px at 50% 0%, rgba(212,175,55,.15), rgba(0,0,0,0));
+  border:1px solid rgba(212,175,55,.18); border-radius:14px; padding:34px 22px;
 }
-.fab {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+.hero{ text-align:center; padding:18px 10px 10px }
+.hero h1{ font-size:44px; line-height:1.16; font-weight:800; letter-spacing:.3px }
+.hero p{ color:var(--muted); margin-top:8px }
+
+/* Butoane */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:12px 22px; border-radius:12px; font-weight:800; letter-spacing:.3px;
+  border:1px solid rgba(255,215,160,.25); margin-right:10px
 }
-.fab.whats { background: #25d366; }
-.fab.call { background: #d4af37; color: #000; }
+.btn.call{ background:linear-gradient(180deg, var(--gold-1), var(--gold-2)); color:#111 }
+.btn.wa  { background:#1f2d20; color:#25D366; border-color:#2f854a }
+
+/* Listă check */
+.check{ margin:20px auto 0; max-width:800px }
+.check li{ margin:10px 0; }
+
+/* FAB */
+.fabWrap{ position:fixed; right:16px; bottom:16px; display:flex; flex-direction:column; gap:10px; z-index:60 }
+.fab{ width:52px; height:52px; display:grid; place-items:center; border-radius:50%;
+      border:1px solid rgba(255,215,160,.28); box-shadow:0 6px 18px rgba(0,0,0,.35) }
+.fab.whats{ background:#25D366; color:#02240f }
+.fab.call { background:linear-gradient(180deg, var(--gold-1), var(--gold-2)); color:#1a1a1a }
+
+/* FOOTER */
+.footer{
+  border-top:1px solid rgba(212,175,55,.2);
+  background:linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.5));
+  margin-top:24px;
+}
+.footerInner{ max-width:1100px; margin:0 auto; padding:12px 16px; text-align:center }
+.footer .slogan{ color:var(--muted); font-weight:700 }
+.footer .mini{ color:var(--gold-2); font-size:13px }
+
+/* Responsive */
+@media (max-width:960px){
+  .navLinks{ display:none }
+  .brand img{ width:46px; height:46px }
+  .hero h1{ font-size:34px }
+}
